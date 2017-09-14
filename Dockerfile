@@ -1,9 +1,8 @@
 FROM golang:alpine
 
-LABEL com.lcgp.vendor="Les Cinemas Gaumont Pathe"
 LABEL version="0.1"
 LABEL description="Prometheus Unbound exporter"
-LABEL maintainer="Vlad Vasiliu <v.vasiliu@cinemasgaumontpathe.com>"
+LABEL maintainer="Vlad Vasiliu <vladvasiliun@yahoo.fr>"
 
 EXPOSE 9167
 
