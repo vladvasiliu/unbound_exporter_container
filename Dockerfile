@@ -18,5 +18,6 @@ LABEL maintainer="Vlad Vasiliu <vladvasiliun@yahoo.fr>"
 EXPOSE 9167
 WORKDIR /bin
 COPY --from=builder /unbound_exporter/app ./unbound_exporter
-HEALTHCHECK --interval=5s --timeout=3s --start-period=5s CMD curl -s http://127.0.0.1:9167 || exit 1
+RUN apk add --no-cache curl
+HEALTHCHECK --interval=5s --timeout=3s --start-period=5s CMD curl -s http://127.0.0.1:9167 -o /dev/null || exit 1
 CMD [ "./unbound_exporter" ]
