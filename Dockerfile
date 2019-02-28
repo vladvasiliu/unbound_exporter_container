@@ -1,4 +1,4 @@
-FROM golang:alpine as builder
+FROM golang:1.12.0-alpine3.9 as builder
 
 RUN apk update && \
     apk add git
@@ -9,9 +9,9 @@ RUN go get github.com/kumina/unbound_exporter
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app github.com/kumina/unbound_exporter
 
 
-FROM alpine:latest
+FROM alpine:3.9
 
-LABEL version="0.4"
+LABEL version="1.0"
 LABEL description="Prometheus Unbound exporter"
 LABEL maintainer="Vlad Vasiliu <vladvasiliun@yahoo.fr>"
 
