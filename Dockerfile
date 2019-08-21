@@ -5,7 +5,7 @@ RUN apk update && \
 
 WORKDIR /unbound_exporter
 
-RUN go get github.com/kumina/unbound_exporter@v0.2
+RUN go get github.com/kumina/unbound_exporter
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app github.com/kumina/unbound_exporter
 
 
